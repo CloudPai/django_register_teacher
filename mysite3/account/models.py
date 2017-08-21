@@ -10,11 +10,13 @@ class User(models.Model):
     username = models.CharField(max_length=50)
     password = models.CharField(max_length=50)
     email = models.EmailField()
+    school = models.CharField(max_length=50)
+    realName = models.CharField(max_length=50)
 
 
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('username', 'email')
+    list_display = ('username', 'email','school','realName','password',)
 
 
 admin.site.register(User, UserAdmin)
