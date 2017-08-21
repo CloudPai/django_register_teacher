@@ -4,7 +4,7 @@ from django import forms
 from django.shortcuts import render_to_response
 from django.http import HttpResponse,HttpResponseRedirect
 from django.template import RequestContext
-from account.models import User
+from .models import User
 
 #定义表单模型
 class UserForm(forms.Form):
