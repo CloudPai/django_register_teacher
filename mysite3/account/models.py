@@ -19,16 +19,16 @@ import os
 # from .storage import OverwriteStorage
 
 # Create your models here.
-class User(models.Model):
-    username = models.CharField(max_length=50)
-    password = models.CharField(max_length=50)
-    email = models.EmailField()
-    school = models.CharField(max_length=50)
-    realName = models.CharField(max_length=50)
-
-
-class UserAdmin(admin.ModelAdmin):
-    list_display = ('username', 'email','school','realName','password',)
+# class User(models.Model):
+#     username = models.CharField(max_length=50)
+#     password = models.CharField(max_length=50)
+#     email = models.EmailField()
+#     school = models.CharField(max_length=50)
+#     realName = models.CharField(max_length=50)
+#
+#
+# class UserAdmin(admin.ModelAdmin):
+#     list_display = ('username', 'email','school','realName','password',)
 
 # admin.site.register(User, UserAdmin)
 
@@ -106,7 +106,7 @@ class BaseUser(AbstractBaseUser):#BaseUser 为重写的django的用户模型
         return self.is_admin
 
 # 此处名称原来为User，为了防止与原来的冲突，更改为Student
-class Student(BaseUser):
+class User(BaseUser):
     """
     用户/学生模型
     """
