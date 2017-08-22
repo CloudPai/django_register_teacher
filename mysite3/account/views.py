@@ -7,7 +7,7 @@ from django.template import RequestContext
 from .models import User
 from rest_framework.generics import CreateAPIView, ListAPIView
 from rest_framework import permissions, status
-from .serializers import UserSerializer
+# from .serializers import UserSerializer
 
 
 #定义表单模型
@@ -51,117 +51,117 @@ from .serializers import UserSerializer
 
 
 
-class CreateUserView(CreateAPIView):
-    """
-    Create a new User
-    """
-    model = User
-    permission_classes = (permissions.AllowAny, )
-    serializer_class = UserSerializer
-
-    def post(self, request):
-        data = request.data.copy()
-        class_object1= Class.objects.filter(school_name=request.data['school'],
-                                            class_name=request.data['student_class'])
-        if class_object1:
-            class_object1 = class_object1[0]
-        else:
-            class_object1 = None
-            data['student_class'] = ""
-            # return Response(data={'code': '3', 'message': '找不到班级!'}, status=status.HTTP_201_CREATED)
-
-        class_object2 = Class.objects.filter(school_name=request.data['school_second'],
-                                             class_name=request.data['student_class_second'])
-        if class_object2:
-            class_object2 = class_object2[0]
-        else:
-            class_object2 = None
-            data['student_class_second'] = ""
-            # return Response(data={'code': '3', 'message': '找不到班级!'}, status=status.HTTP_201_CREATED)
-        print(data)
-        serializer = UserSerializer(data=request.data)
-        if serializer.is_valid(raise_exception=True):
-            serializer.save(student_class=class_object1, student_class_second=class_object2)
-            return Response(data={'code': '0', 'message': 'Success!'}, status=status.HTTP_201_CREATED)
-        else:
-            return Response("Error!", status=status.HTTP_400_BAD_REQUEST)
-
-
-class MyObtainAuthToken(ObtainAuthToken):
-    """
-    Login Auth
-    In order to return specific code, we rewrite TokenSerializer class
-    """
-    serializer_class = MyAuthTokenSerializer
-
-
-
-
-
-def scratch(request):
-    return render_to_response("scratch.html");
-
-
-
-def analysis(request):
-    if request.method == "GET":
-        r = add.delay(3, 4)
-        print(r.get())
-        c = {}
-        c.update(csrf(request))
-        return render_to_response("upload_file.html", c)
-
-
-class SchoolView(ListAPIView):
-    """
-    创建一个学校或者获取学校列表
-    """
-    model = School
-    permission_classes = (permissions.AllowAny, )
-    serializer_class = SchoolSerializer
-    queryset = School.objects.all()
-
-    def post(self, request):
-        serializer = SchoolSerializer(data=request.data)
-        if serializer.is_valid(raise_exception=True):
-            serializer.save()
-            return Response(data={'code': '0', 'message': 'Success!'}, status=status.HTTP_201_CREATED)
-        else:
-            return Response("Error!", status=status.HTTP_400_BAD_REQUEST)
-
-
-class ClassListView(ListAPIView):
-    """
-    获取一个学校的班级列表
-    """
-    model = Class
-    permission_classes = (permissions.AllowAny, )
-    serializer_class = ClassListSerializer
-
-    def get_queryset(self):
-        schoolname = self.request.data['school_name']
-        print(schoolname)
-        return Class.objects.filter(school_name=schoolname)
-
-    def post(self, request, *args, **kwargs):
-        self.get_queryset()
-        return self.list(request, *args, **kwargs)
-
-
-class ClassCreateView(ListAPIView):
-    """
-    创建一个班级
-    """
-    model = Class
-    permission_classes = (permissions.AllowAny, )
-    serializer_class = ClassCreateSerializer
-
-    def post(self, request):
-        serializer = ClassCreateSerializer(data=request.data)
-        if serializer.is_valid(raise_exception=True):
-            serializer.save()
-            return Response(data={'code': '0', 'message': 'Success!'}, status=status.HTTP_201_CREATED)
-        else:
-            return Response("Error!", status=status.HTTP_400_BAD_REQUEST)
-
+# class CreateUserView(CreateAPIView):
+#     """
+#     Create a new User
+#     """
+#     model = User
+#     permission_classes = (permissions.AllowAny, )
+#     serializer_class = UserSerializer
+#
+#     def post(self, request):
+#         data = request.data.copy()
+#         class_object1= Class.objects.filter(school_name=request.data['school'],
+#                                             class_name=request.data['student_class'])
+#         if class_object1:
+#             class_object1 = class_object1[0]
+#         else:
+#             class_object1 = None
+#             data['student_class'] = ""
+#             # return Response(data={'code': '3', 'message': '找不到班级!'}, status=status.HTTP_201_CREATED)
+#
+#         class_object2 = Class.objects.filter(school_name=request.data['school_second'],
+#                                              class_name=request.data['student_class_second'])
+#         if class_object2:
+#             class_object2 = class_object2[0]
+#         else:
+#             class_object2 = None
+#             data['student_class_second'] = ""
+#             # return Response(data={'code': '3', 'message': '找不到班级!'}, status=status.HTTP_201_CREATED)
+#         print(data)
+#         serializer = UserSerializer(data=request.data)
+#         if serializer.is_valid(raise_exception=True):
+#             serializer.save(student_class=class_object1, student_class_second=class_object2)
+#             return Response(data={'code': '0', 'message': 'Success!'}, status=status.HTTP_201_CREATED)
+#         else:
+#             return Response("Error!", status=status.HTTP_400_BAD_REQUEST)
+#
+#
+# class MyObtainAuthToken(ObtainAuthToken):
+#     """
+#     Login Auth
+#     In order to return specific code, we rewrite TokenSerializer class
+#     """
+#     serializer_class = MyAuthTokenSerializer
+#
+#
+#
+#
+#
+# def scratch(request):
+#     return render_to_response("scratch.html");
+#
+#
+#
+# def analysis(request):
+#     if request.method == "GET":
+#         r = add.delay(3, 4)
+#         print(r.get())
+#         c = {}
+#         c.update(csrf(request))
+#         return render_to_response("upload_file.html", c)
+#
+#
+# class SchoolView(ListAPIView):
+#     """
+#     创建一个学校或者获取学校列表
+#     """
+#     model = School
+#     permission_classes = (permissions.AllowAny, )
+#     serializer_class = SchoolSerializer
+#     queryset = School.objects.all()
+#
+#     def post(self, request):
+#         serializer = SchoolSerializer(data=request.data)
+#         if serializer.is_valid(raise_exception=True):
+#             serializer.save()
+#             return Response(data={'code': '0', 'message': 'Success!'}, status=status.HTTP_201_CREATED)
+#         else:
+#             return Response("Error!", status=status.HTTP_400_BAD_REQUEST)
+#
+#
+# class ClassListView(ListAPIView):
+#     """
+#     获取一个学校的班级列表
+#     """
+#     model = Class
+#     permission_classes = (permissions.AllowAny, )
+#     serializer_class = ClassListSerializer
+#
+#     def get_queryset(self):
+#         schoolname = self.request.data['school_name']
+#         print(schoolname)
+#         return Class.objects.filter(school_name=schoolname)
+#
+#     def post(self, request, *args, **kwargs):
+#         self.get_queryset()
+#         return self.list(request, *args, **kwargs)
+#
+#
+# class ClassCreateView(ListAPIView):
+#     """
+#     创建一个班级
+#     """
+#     model = Class
+#     permission_classes = (permissions.AllowAny, )
+#     serializer_class = ClassCreateSerializer
+#
+#     def post(self, request):
+#         serializer = ClassCreateSerializer(data=request.data)
+#         if serializer.is_valid(raise_exception=True):
+#             serializer.save()
+#             return Response(data={'code': '0', 'message': 'Success!'}, status=status.HTTP_201_CREATED)
+#         else:
+#             return Response("Error!", status=status.HTTP_400_BAD_REQUEST)
+#
 
