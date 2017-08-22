@@ -39,10 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account',
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 # django——重写用户模型
 # 修改配置文件，覆盖默认的User模型
-# AUTH_USER_MODEL = 'account.BaseUser'
+AUTH_USER_MODEL = 'account.BaseUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

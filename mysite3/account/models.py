@@ -37,6 +37,7 @@ class UserAdmin(admin.ModelAdmin):
 # 以下内容导入自902scratch_api
 
 class MyUserManager(BaseUserManager):
+#manager定义了create_user()和create_superuser()方法
     """
     The default User Model is too crowd, we use Custom BaseUserManager instead
     """
@@ -70,7 +71,7 @@ class MyUserManager(BaseUserManager):
         return user
 
 
-class BaseUser(AbstractBaseUser):
+class BaseUser(AbstractBaseUser):#BaseUser 为重写的django的用户模型
     username = models.CharField(max_length=30, unique=True, primary_key=True)
     is_admin = models.BooleanField(default=False)
 
@@ -100,8 +101,7 @@ class BaseUser(AbstractBaseUser):
     def has_module_perms(self, app_label):#user是否拥有app中访问models的权限
         return True
 
-    @property  #通过@property装饰器在model中预定义方法实现
-                # 如使用 user.is_staff 判断是否允许user访问admin界面
+    @property  #通过@property装饰器在model中预定义方法实现 , 如使用 user.is_staff 判断是否允许user访问admin界面
     def is_staff(self):
         return self.is_admin
 
