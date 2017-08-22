@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for mysite3 project.
 
@@ -41,13 +42,13 @@ INSTALLED_APPS = [
 ]
 # django——重写用户模型
 # 修改配置文件，覆盖默认的User模型
-AUTH_USER_MODEL = 'account.BaseUser'
+# AUTH_USER_MODEL = 'account.BaseUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -107,9 +108,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
 # LANGUAGE_CODE = 'zh_cn'
 # TIME_ZONE = 'UTC'
+
+LANGUAGE_CODE = 'zh-Hans'
+
 TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
