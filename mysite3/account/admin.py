@@ -101,3 +101,4 @@ class TeacherAdmin(BaseUserAdmin):
 admin.site.register(School)
 admin.site.register(Class)
 admin.site.register(User)
+admin.site.register(Teacher)
