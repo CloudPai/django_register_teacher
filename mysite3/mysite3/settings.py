@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'account',
 ]
+# django——重写用户模型
+# 修改配置文件，覆盖默认的User模型
+AUTH_USER_MODEL = 'account.BaseUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

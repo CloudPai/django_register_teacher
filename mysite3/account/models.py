@@ -27,11 +27,10 @@ class User(models.Model):
     realName = models.CharField(max_length=50)
 
 
-
 class UserAdmin(admin.ModelAdmin):
     list_display = ('username', 'email','school','realName','password',)
 
-admin.site.register(User, UserAdmin)
+# admin.site.register(User, UserAdmin)
 
 # 以下内容导入自902scratch_api
 # 以下内容导入自902scratch_api
@@ -81,7 +80,7 @@ class BaseUser(AbstractBaseUser):
     REQUIRED_FIELDS = ()
 
     class Meta:
-        ordering = ('-username',)
+        ordering = ('-username',)#按用户名降序排列，-表示降序
 
     def __unicode__(self):
         return self.username
@@ -98,10 +97,11 @@ class BaseUser(AbstractBaseUser):
     def has_perm(self, perm, obj=None):
         return True
 
-    def has_module_perms(self, app_label):
+    def has_module_perms(self, app_label):#user是否拥有app中访问models的权限
         return True
 
-    @property
+    @property  #通过@property装饰器在model中预定义方法实现
+                # 如使用 user.is_staff 判断是否允许user访问admin界面
     def is_staff(self):
         return self.is_admin
 
@@ -140,13 +140,14 @@ class Student(BaseUser):
     def get_short_name(self):
         return self.username
 
-    def has_perm(self, perm, obj=None):
+    def has_perm(self, perm, obj=None):#has_perm(perm)：判断用户是否具有特定权限,
+                                        # checks whether the user has a specific permission
         return True
 
-    def has_module_perms(self, app_label):
+    def has_module_perms(self, app_label):#checks whether the user has any permissions for that app
         return True
 
-    @property
+    @property ##通过@property装饰器在model中预定义方法实现 如使用 user.is_admin 查询是否允许user访问admin界面
     def is_staff(self):
         return self.is_admin
 
@@ -185,9 +186,11 @@ class Teacher(BaseUser):
 
 
     class Meta:
-        ordering = ('-username',)
+        ordering = ('-username',)#按用户名降序排列，-表示降序
 
-    def __unicode__(self):
+
+
+    def __unicode__(self):#
         return self.name
 
     def __str__(self):
@@ -289,9 +292,13 @@ class Class(models.Model):
     class Meta:
         unique_together = (("school_name", "class_name"),)
 
+
+#__str_和__unicode__的作用是美化打印出来的结果，使人类更方便查看
+    #如果是Python2的话就使用__unicode__方法
     def __unicode__(self):
         return self.class_name
 
+    # 如果用的是Python3的话就只能用__str__方法
     def __str__(self):
         return self.class_name
 

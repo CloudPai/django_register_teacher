@@ -9,6 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from .models import Student, Teacher ,School, Class#Production, ANTLRScore, ProductionHint, TeacherScore,
 
+from .models import User,UserAdmin
 # from .tasks import run
 
 # Register your models here.
@@ -100,3 +101,4 @@ class TeacherAdmin(BaseUserAdmin):
 admin.site.register(School)
 admin.site.register(Class)
 admin.site.register(Student)
+admin.site.register(User, UserAdmin)
