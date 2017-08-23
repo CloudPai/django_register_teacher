@@ -29,6 +29,6 @@ from django_tables2 import RequestConfig
 class MyLoginView(LoginView):
     authentication_form = MyAuthenticationForm
     LOGIN_REDIRECT_URL = '/index'
-    redirect_authenticated_user = False
+    redirect_authenticated_user = False #重定向
     extra_context = {'class': "form-control"}
 
