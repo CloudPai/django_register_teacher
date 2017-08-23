@@ -27,4 +27,5 @@ urlpatterns = [
     # url(r'^$', 'mysite3.views.home', name='home'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^account/', include('account.urls')),
+    # url(r'^account/',include('account.urls',namespace='account')),
 ]

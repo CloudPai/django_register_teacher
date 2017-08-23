@@ -12,7 +12,9 @@ from . import views
 urlpatterns = [
     # url(r'^$', views.register, name='register'),
     # url(r'^register/$', views.register, name='register'),
-    url(r'^$', MyLoginView.as_view(), name='login'),#教师登录界面
-
+    url(r'^login/$', MyLoginView.as_view(), name='login'),#教师登录界面
+    # #登录界面
+    # url(r'^login/$', login, {'template_name': 'users/login.html'},
+    #     name='login'),
 
 ]
