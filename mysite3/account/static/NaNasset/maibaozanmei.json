@@ -1,0 +1,38 @@
+{
+	"objName": "麦宝赞美",
+	"sounds": [{
+			"soundName": "plunge",
+			"soundID": -1,
+			"md5": "c09455ee9da0e7eeead42d4e73c2555d.wav",
+			"sampleCount": 22400,
+			"rate": 11025,
+			"format": ""
+		}],
+	"costumes": [{
+			"costumeName": "好美",
+			"baseLayerID": -1,
+			"baseLayerMD5": "haomei.png",
+			"bitmapResolution": 1,
+			"rotationCenterX": 56,
+			"rotationCenterY": 93
+		},
+		{
+			"costumeName": "真棒！",
+			"baseLayerID": -1,
+			"baseLayerMD5": "zhenbang.png",
+			"bitmapResolution": 1,
+			"rotationCenterX": 56,
+			"rotationCenterY": 93
+		}],
+	"currentCostumeIndex": 0,
+	"scratchX": 0,
+	"scratchY": 0,
+	"scale": 1,
+	"direction": 90,
+	"rotationStyle": "normal",
+	"isDraggable": false,
+	"indexInLibrary": 100000,
+	"visible": true,
+	"spriteInfo": {
+	}
+}

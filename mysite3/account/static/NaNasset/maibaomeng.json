@@ -1,0 +1,46 @@
+{
+	"objName": "麦宝萌表情",
+	"sounds": [{
+			"soundName": "plunge",
+			"soundID": -1,
+			"md5": "c09455ee9da0e7eeead42d4e73c2555d.wav",
+			"sampleCount": 22400,
+			"rate": 11025,
+			"format": ""
+		}],
+	"costumes": [{
+			"costumeName": "麦宝萌表情-1",
+			"baseLayerID": -1,
+			"baseLayerMD5": "mengbiaoqing-1.png",
+			"bitmapResolution": 1,
+			"rotationCenterX": 56,
+			"rotationCenterY": 93
+		},
+		{
+			"costumeName": "麦宝萌表情-2",
+			"baseLayerID": -1,
+			"baseLayerMD5": "mengbiaoqing-2.png",
+			"bitmapResolution": 1,
+			"rotationCenterX": 56,
+			"rotationCenterY": 93
+		},
+		{
+			"costumeName": "麦宝萌表情-3",
+			"baseLayerID": -1,
+			"baseLayerMD5": "mengbiaoqing-3.png",
+			"bitmapResolution": 1,
+			"rotationCenterX": 56,
+			"rotationCenterY": 93
+		}],
+	"currentCostumeIndex": 0,
+	"scratchX": 0,
+	"scratchY": 0,
+	"scale": 1,
+	"direction": 90,
+	"rotationStyle": "normal",
+	"isDraggable": false,
+	"indexInLibrary": 100000,
+	"visible": true,
+	"spriteInfo": {
+	}
+}

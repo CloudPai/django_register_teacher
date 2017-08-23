@@ -1,0 +1,45 @@
+{
+	"objName": "麦宝超人",
+	"sounds": [{
+			"soundName": "plunge",
+			"soundID": -1,
+			"md5": "c09455ee9da0e7eeead42d4e73c2555d.wav",
+			"sampleCount": 22400,
+			"rate": 11025,
+			"format": ""
+		}],
+	"costumes": [{
+			"costumeName": "麦宝超人-0",
+			"baseLayerID": -1,
+			"baseLayerMD5": "jiayou.png",
+			"bitmapResolution": 1,
+			"rotationCenterX": 56,
+			"rotationCenterY": 93
+		},{
+			"costumeName": "麦宝超人-1",
+			"baseLayerID": -1,
+			"baseLayerMD5": "maibaochaoren-1.png",
+			"bitmapResolution": 1,
+			"rotationCenterX": 56,
+			"rotationCenterY": 93
+		},
+		{
+			"costumeName": "麦宝超人-2",
+			"baseLayerID": -1,
+			"baseLayerMD5": "maibaochaoren-2.png",
+			"bitmapResolution": 1,
+			"rotationCenterX": 56,
+			"rotationCenterY": 93
+		}],
+	"currentCostumeIndex": 0,
+	"scratchX": 0,
+	"scratchY": 0,
+	"scale": 1,
+	"direction": 90,
+	"rotationStyle": "normal",
+	"isDraggable": false,
+	"indexInLibrary": 100000,
+	"visible": true,
+	"spriteInfo": {
+	}
+}
